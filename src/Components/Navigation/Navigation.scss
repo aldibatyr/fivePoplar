@@ -1,0 +1,26 @@
+@import '../../Globals/breakpoints.scss';
+
+nav {
+  .navigation-wrapper {
+    max-width: 1366px;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 75px;
+
+    .logo-wrapper {
+      margin-right: 20px;
+    }
+
+    .menu-button {
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
