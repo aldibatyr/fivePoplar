@@ -11,11 +11,10 @@ const MainView = () => {
 
 
   useEffect(() => {
-    console.log('main view effect ran')
     if (context.movies !== []) {
       context.setSelected(context.movies[context.index])
     }
-  })
+  },[context.index])
 
 
   return (
