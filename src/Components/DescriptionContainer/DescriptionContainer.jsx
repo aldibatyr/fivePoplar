@@ -41,13 +41,11 @@ const DescriptionContainer = () => {
       <RatingBar />
       <div className="next-prev-controls">
         <div className="button-wrapper">
-          <button onClick={() => context.setIndex(context.index - 1)}>previous</button>
+          <button disabled={context.index === 0 ? 'disabled' : ''} onClick={() => context.setIndex(context.index - 1)}>previous</button>
         </div>
         <div className="button-wrapper">
-          <button onClick={() => context.setIndex(context.index + 1)}>next</button>
+          <button disabled={context.index === 4 ? 'disabled' : ''} onClick={() => context.setIndex(context.index + 1)}>next</button>
         </div>
-
-
       </div>
 
 

@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './RatingBar.scss';
 import { Context } from '../../Context/Context';
 import styled from 'styled-components';
+import gsap from 'gsap';
 
 const BarWrapper = styled.div`
   position: relative;
@@ -37,7 +38,7 @@ const RatingBar = () => {
   return (
     <div className="rating-box">
     <BarWrapper>
-      <Bar width={`${context.selected.vote_average * 10}%`}>
+      <Bar className="bar" width={`${context.selected.vote_average * 10}%`}>
         <span>{context.selected.vote_average * 10}%</span>
       </Bar>
       

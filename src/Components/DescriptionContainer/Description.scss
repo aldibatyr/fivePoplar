@@ -40,6 +40,9 @@
         cursor: pointer;
         width: 200px;
       }
+      &:disabled {
+        background: grey;
+      }
     }
   }
 }
