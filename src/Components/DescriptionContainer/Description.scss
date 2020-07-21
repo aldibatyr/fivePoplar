@@ -1,5 +1,6 @@
 .description-container {
-  grid-column: 2/span 5;
+  max-width: 600px;
+  width: 40%;
   display: grid;
   grid-template-rows: 120px 200px 60px 80px;
   position: relative;
