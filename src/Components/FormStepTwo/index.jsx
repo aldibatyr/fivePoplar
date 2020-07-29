@@ -1,44 +1,26 @@
 import React, { useState } from "react";
 import FormCheckboxField from "../FormCheckboxField";
-import { motion } from "framer-motion";
+import styled from "styled-components";
 
-const FormStepTwo = ({ checkmarkVariants }) => {
-  const [watchingWithFamily, setWatchingWithFamily] = useState(false);
-  const [watchingAlone, setWatchingAlone] = useState(false);
-  const [watchingWithSignificant, setWatchingWithSignificant] = useState(false);
-  const [watchingWithFriends, setWatchingWithFriends] = useState(false);
+const FormScreen = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-  const handleCheckFamily = () => {
-    setWatchingWithFamily(true);
-    setWatchingAlone(false);
-    setWatchingWithFriends(false);
-    setWatchingWithSignificant(false);
-  };
-  const handleCheckAlone = () => {
-    setWatchingWithFamily(false);
-    setWatchingAlone(true);
-    setWatchingWithFriends(false);
-    setWatchingWithSignificant(false);
-  };
-  const handleCheckFriends = () => {
-    setWatchingWithFamily(false);
-    setWatchingAlone(false);
-    setWatchingWithFriends(true);
-    setWatchingWithSignificant(false);
-  };
-  const handleCheckSignificant = () => {
-    setWatchingWithFamily(false);
-    setWatchingAlone(false);
-    setWatchingWithFriends(false);
-    setWatchingWithSignificant(true);
-  };
+const FormStepTwo = ({
+  checkmarkVariants,
+  watchingWithFamily,
+  watchingAlone,
+  watchingWithSignificant,
+  watchingWithFriends,
+  handleCheckFamily,
+  handleCheckAlone,
+  handleCheckFriends,
+  handleCheckSignificant,
+  formHeight
+}) => {
   return (
-    <motion.div
-      key="stepTwo"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <FormScreen height={formHeight}>
       <div className="formStepLabel">
         <h3>I'm watching with</h3>
       </div>
@@ -66,7 +48,7 @@ const FormStepTwo = ({ checkmarkVariants }) => {
         checkmarkVariants={checkmarkVariants}
         title="Friends"
       />
-    </motion.div>
+    </FormScreen>
   );
 };
 

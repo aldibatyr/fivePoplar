@@ -1,27 +1,57 @@
-import React from 'react';
-import logo from '../../Assets/FivePoplarLogo.svg';
+import React, { useRef } from "react";
+import logo from "../../Assets/FivePoplarLogo.svg";
+import { MenuToggle } from "../MenuToggle/MenuToggle";
+import { motion, useCycle } from "framer-motion";
+import { useDimensions } from "./use-dimensions";
+import styled from "styled-components";
+import NavigationBody from "../NavigationBody/NavigationBody";
+
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(30px at 260px 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
 
 const Navigation = (props) => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
+  const { height } = useDimensions(containerRef);
+
   return (
-    <nav>
-      <div className="navigation-wrapper">
+    <motion.nav
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      custom={height}
+      ref={containerRef}
+    >
+      <NavigationBackground className="background" variants={sidebar} />
+      <NavigationBody />
+      <MenuToggle toggle={() => toggleOpen()} />
+    </motion.nav>
+  );
+};
 
-        <div className="logo-wrapper">
-          <img src={logo} alt="logo" />
-        </div>
-        <button className="menu-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="20" viewBox="0 0 37 20">
-            <g id="Group_1" data-name="Group 1" transform="translate(-1104.5 -51.5)">
-              <line id="Line_1" data-name="Line 1" x2="30" transform="translate(1110.5 52.5)" fill="none" stroke="#f2f2f2" strokeLinecap="round" strokeWidth="2" />
-              <line id="Line_2" data-name="Line 2" x2="35" transform="translate(1105.5 58.5)" fill="none" stroke="#f2f2f2" strokeLinecap="round" strokeWidth="2" />
-              <line id="Line_3" data-name="Line 3" x2="30" transform="translate(1110.5 64.5)" fill="none" stroke="#f2f2f2" strokeLinecap="round" strokeWidth="2" />
-              <line id="Line_4" data-name="Line 4" x2="35" transform="translate(1105.5 70.5)" fill="none" stroke="#f2f2f2" strokeLinecap="round" strokeWidth="2" />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </nav>
-  )
-}
+const NavigationBackground = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
+`;
 
-export default Navigation
+export default Navigation;

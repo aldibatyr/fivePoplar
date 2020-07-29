@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import FormCheckboxField from "../FormCheckboxField";
-import { motion } from "framer-motion";
+import styled from "styled-components";
 
-const FormStepOne = ({ checkmarkVariants }) => {
-  const [isMovie, setIsMovie] = useState(false);
-  const [isSeries, setIsSeries] = useState(false);
+const FormScreen = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: ${({ width }) => `${width}px`};
+`;
 
-  const handleCheckMovie = () => {
-    setIsMovie(true);
-    setIsSeries(false);
-  };
-
-  const handleCheckSeries = () => {
-    setIsSeries(true);
-    setIsMovie(false);
-  };
+const FormStepOne = ({
+  checkmarkVariants,
+  isMovie,
+  isSeries,
+  handleCheckMovie,
+  handleCheckSeries,
+  formHeight,
+  formWidth,
+}) => {
   return (
-    <motion.div
-      key="stepOne"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <FormScreen width={formWidth} height={formHeight}>
       <div className="formStepLabel">
         <h3>I'm looking for</h3>
       </div>
+
       <FormCheckboxField
         action={handleCheckMovie}
         stateBoolean={isMovie}
@@ -37,7 +35,7 @@ const FormStepOne = ({ checkmarkVariants }) => {
         checkmarkVariants={checkmarkVariants}
         title="TV Series"
       />
-    </motion.div>
+    </FormScreen>
   );
 };
 
