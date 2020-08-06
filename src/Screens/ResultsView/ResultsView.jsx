@@ -20,6 +20,7 @@ const ResultsView = () => {
           {context.items.map((item) => {
             return (
               <ItemCard
+                key={item.id}
                 selectCard={selectCard}
                 item={item}
                 cardSelected={item.id === selectedId}

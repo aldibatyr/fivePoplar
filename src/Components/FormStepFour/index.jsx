@@ -52,10 +52,6 @@ const FormStepFour = ({
               />
             );
           })}
-          <div
-            style={{ height: "50px", width: "50px", background: "#fff" }}
-            onClick={redirectToResults}
-          ></div>
         </GenresScreen>
       </>
     );

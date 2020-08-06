@@ -41,7 +41,7 @@ const FormContainer = () => {
   const disableButtons = () => {
     if (step === 0) {
       setPrevButtonDisabled(true);
-    } else if (step === 5) {
+    } else if (step === 3) {
       setNextButtonDisabled(true);
     } else {
       setNextButtonDisabled(false);
@@ -285,14 +285,24 @@ const FormContainer = () => {
         >
           previous
         </ControlButton>
-        <ControlButton
-          disabled={nextButtonDisabled}
-          onClick={() => handleButtonClick(1)}
-          whileTap={{ scale: 0.9 }}
-          style={{ marginLeft: "5px" }}
-        >
-          next
-        </ControlButton>
+        {step === 3 ? (
+          <ControlButton
+            whileTap={{ scale: 0.9 }}
+            style={{ marginLeft: "5px" }}
+            onClick={redirectToResults}
+          >
+            Search
+          </ControlButton>
+        ) : (
+          <ControlButton
+            disabled={nextButtonDisabled}
+            onClick={() => handleButtonClick(1)}
+            whileTap={{ scale: 0.9 }}
+            style={{ marginLeft: "5px" }}
+          >
+            next
+          </ControlButton>
+        )}
       </Controls>
     </StyledFormContainer>
   );
