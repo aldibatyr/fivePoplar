@@ -12,10 +12,10 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-const NavigationBody = () => {
+const NavigationBody = ({ toggleOpen }) => {
   return (
     <NavigationBodyList variants={variants}>
-      <MenuItem i={1} />
+      <MenuItem toggleOpen={toggleOpen} i={1} />
     </NavigationBodyList>
   );
 };
@@ -23,6 +23,7 @@ const NavigationBody = () => {
 const NavigationBodyList = styled(motion.ul)`
   padding: 25px;
   position: absolute;
+  z-index: 2;
   top: 100px;
   right: 0;
   width: 230px;
@@ -45,9 +46,10 @@ const itemVariants = {
   },
 };
 
-const MenuItem = ({ i }) => {
+const MenuItem = ({ toggleOpen, i }) => {
   return (
     <StyledMenuItem
+      onClick={toggleOpen}
       color={colors[i]}
       variants={itemVariants}
       whileHover={{ scale: 1.1 }}

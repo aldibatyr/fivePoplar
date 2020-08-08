@@ -11,6 +11,7 @@ const FormView = () => {
 };
 
 const FormPage = styled.div`
+  padding-top: 100px;
   width: 100vw;
 `;
 

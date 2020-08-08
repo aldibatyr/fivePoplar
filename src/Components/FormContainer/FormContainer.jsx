@@ -309,6 +309,7 @@ const FormContainer = () => {
 };
 
 const StyledFormContainer = styled.div`
+  margin-top: 100px;
   position: relative;
   margin: auto;
   max-width: 600px;
