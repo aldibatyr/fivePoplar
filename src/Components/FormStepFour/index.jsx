@@ -4,7 +4,6 @@ import GenreCellContainer from "../GenreCellContainer/GenreCellContainer";
 
 const GenresScreen = styled.div`
   display: flex;
-  height: ${({ height }) => `${height - 40}px`};
   justify-content: space-evenly;
   align-items: stretch;
   flex-direction: row;
@@ -38,7 +37,7 @@ const FormStepFour = ({
   const makeGenresScreen = () => {
     return (
       <>
-        <div className="formStepLabel">
+        <div style={{ textAlign: "center" }}>
           <h3>Select all genres that apply</h3>
         </div>
         <GenresScreen height={formHeight}>

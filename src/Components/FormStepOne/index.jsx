@@ -19,7 +19,7 @@ const FormStepOne = ({
 }) => {
   return (
     <FormScreen width={formWidth} height={formHeight}>
-      <div className="formStepLabel">
+      <div style={{ textAlign: "center" }}>
         <h3>I'm looking for</h3>
       </div>
 

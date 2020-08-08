@@ -12,7 +12,7 @@ const FormStepThree = ({
 }) => {
   return (
     <>
-      <div className="formStepLabel">
+      <div style={{ textAlign: "center" }}>
         <h3>Show me movies from</h3>
       </div>
       <FormCheckboxField

@@ -21,7 +21,7 @@ const FormStepTwo = ({
 }) => {
   return (
     <FormScreen height={formHeight}>
-      <div className="formStepLabel">
+      <div style={{ textAlign: "center" }}>
         <h3>I'm watching with</h3>
       </div>
       <FormCheckboxField
