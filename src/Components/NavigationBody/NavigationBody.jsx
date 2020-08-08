@@ -11,9 +11,9 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-const NavigationBody = ({ toggleOpen }) => {
+const NavigationBody = ({ isOpen, toggleOpen }) => {
   return (
-    <NavigationBodyList variants={variants}>
+    <NavigationBodyList isOpen={isOpen} variants={variants}>
       <MenuItem toggleOpen={toggleOpen} i={1} />
     </NavigationBodyList>
   );
@@ -22,7 +22,7 @@ const NavigationBody = ({ toggleOpen }) => {
 const NavigationBodyList = styled(motion.ul)`
   padding: 25px;
   position: absolute;
-  z-index: 2;
+  z-index: ${({ isOpen }) => (isOpen ? 2 : 0)};
   top: 100px;
   right: 0;
   width: 230px;

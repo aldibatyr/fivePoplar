@@ -39,11 +39,10 @@ const Navigation = (props) => {
       ref={containerRef}
     >
       <NavigationBackground
-        style={isOpen ? { zIndex: 1 } : { zIndex: 0 }}
         className="background"
         variants={sidebar}
       />
-      <NavigationBody toggleOpen={() => toggleOpen()} />
+      <NavigationBody isOpen={isOpen} toggleOpen={() => toggleOpen()} />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );
