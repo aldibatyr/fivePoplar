@@ -31,14 +31,17 @@ const NavigationBodyList = styled(motion.ul)`
 const itemVariants = {
   open: {
     y: 0,
+    visibility: "visible",
     opacity: 1,
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
   },
   closed: {
+    visibility: "hidden",
     y: 50,
     opacity: 0,
+
     transition: {
       y: { stiffness: 1000 },
     },

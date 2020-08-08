@@ -38,7 +38,11 @@ const Navigation = (props) => {
       custom={height}
       ref={containerRef}
     >
-      <NavigationBackground className="background" variants={sidebar} />
+      <NavigationBackground
+        style={isOpen ? { zIndex: 1 } : { zIndex: 0 }}
+        className="background"
+        variants={sidebar}
+      />
       <NavigationBody toggleOpen={() => toggleOpen()} />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
@@ -47,12 +51,12 @@ const Navigation = (props) => {
 
 const NavigationBackground = styled(motion.div)`
   position: absolute;
-  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   width: 300px;
   background: #fff;
+  z-index: 1;
 `;
 
 export default Navigation;
