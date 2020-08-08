@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { colors } from "../../Globals/backgroundColors";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { RefreshIcon } from "../../Assets/svgs";
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },

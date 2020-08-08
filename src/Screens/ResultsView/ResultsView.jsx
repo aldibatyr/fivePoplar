@@ -5,6 +5,20 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 import ItemCard from "../../Components/ItemCard/ItemCard";
 import { Context } from "../../Context/Context";
 
+const transition = {
+  duration: 1,
+  ease: [0.43, 0.13, 0.23, 0.96],
+};
+
+const resultsVariants = {
+  exit: { y: "50%", opacity: 0, transition },
+  enter: {
+    y: "0%",
+    opacity: 1,
+    transition,
+  },
+};
+
 const ResultsView = () => {
   const context = useContext(Context);
   const [selectedId, setSelectedId] = useState(null);
@@ -14,7 +28,12 @@ const ResultsView = () => {
   };
 
   return (
-    <ResultsPage>
+    <ResultsPage
+      initial="exit"
+      animate="enter"
+      exit="exit"
+      variants={resultsVariants}
+    >
       <AnimateSharedLayout>
         <ResultsContainer>
           {context.items.map((item) => {
@@ -33,7 +52,7 @@ const ResultsView = () => {
   );
 };
 
-const ResultsPage = styled.div`
+const ResultsPage = styled(motion.div)`
   width: 100vw;
 `;
 
